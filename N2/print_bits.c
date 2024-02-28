@@ -2,19 +2,23 @@
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	write (1, &c, 1);
 }
 
-void	ft_print_bits(unsigned char octet)
+void	print_bits(unsigned char octet)
 {
-	int	bit;
+	unsigned char	bit;
+	int	i;
 
-	bit = 8;
-	while(bit--)
+	i = 8;
+	while (i--)
 	{
-		if((octet >> bit & 1) == 0)
-			ft_putchar(0);
-		else
-			ft_putchar(1);
+		bit = (octet >> i & 1) + '0';
+		ft_putchar(bit);
 	}
+}
+
+int	main ()
+{
+	print_bits(200);
 }
